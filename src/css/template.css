@@ -1,0 +1,80 @@
+/* layout */
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.flex.bw{
+  justify-content: space-between;
+}
+.flex.r{
+  justify-content: flex-end;
+}
+
+/* toggle button */
+.toggle{
+  position:relative;
+  height: 24px;
+  width: 44px;
+  border-radius: 1.5em;
+  display:inline-block;
+  margin-inline: 5px;
+  padding: 5px;
+  border:2px solid var(--tx-li);
+  vertical-align: middle;
+}
+.toggle::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--fg-df);
+  background: var(--tx-li);
+  border-radius: 50%;
+  transition: all .2s;
+}
+.toggle.on::before{
+  left: 21px;
+}
+/* message */
+#msg-info{
+  width: 200px;
+  font-size: 13px;
+  position: fixed;
+  top: 0;
+  left: 10px;
+  z-index: 0
+}
+.msg{
+  display: inline-block;
+  width: auto;
+  padding: 5px 8px;
+  margin: 3px;
+  background: var(--bg-df);
+  border: 1px solid var(--tx-df);
+  border-radius: 5px;
+  transform-origin:left,top;
+  text-align: left;
+  transform: scale(1);
+  overflow: hidden;
+  transition: all .2s;
+}
+.msg.suc{
+  border: 1px solid var(--hl-sc);
+}
+.msg.err{
+  border: 1px solid var(--hl-er);
+}
+.msg::before{
+  content: '😆';
+  padding-right: 5px;
+}
+.msg.suc::before{
+  content: '😎';
+}
+.msg.err::before{
+  content: '😮‍💨';
+}

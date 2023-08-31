@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    async function getData() {
+      const body=JSON.stringify({
+        name:"lorre",
+        year:18
+      })
+      const data=await fetch('http://localhost:4000/signup',{
+        method:"POST",
+        body,
+      }).then((e=>e.json()))
+      console.log(data);
+    }
+    getData()
+  </script>
+</body>
+</html>

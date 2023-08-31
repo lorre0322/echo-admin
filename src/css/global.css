@@ -1,0 +1,56 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  min-width: 300px;
+  background-color: var(--bg-df);
+  color: var(--tx-df);
+  line-height: 2em;
+}
+body{
+  margin: 0;
+}
+
+form{
+  user-select: none;
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+button,input,textarea{
+  background: var(--bg-df);
+  border:1px solid var(--tx-df);
+  color: var(--tx-df);
+  padding: 15px;
+  border-radius: 8px;
+  outline: none;
+  margin:5px 0;
+}
+
+input,textarea{
+  width: 100%;
+}
+
+button:active{
+  transform: scale(0.98);
+  background: var(--bg-df);
+
+}
+button[disabled]{
+  background-color: var(--bg-se);
+}
+button[disabled]:active{
+  transform: scale(1);
+}
+
+@keyframes show {
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+}
+.an{
+  animation: show .5s;
+  position: relative;
+}
