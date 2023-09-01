@@ -29,6 +29,10 @@ export function getCookie(){
 export function setCookie(param,value){
   document.cookie=`${param}=${value}; Path=/; Max-Age=604800;secure=true`
 }
+// Delete cookie for client
+export function delCookie(param){
+  document.cookie=`${param}=''; Path=/; Max-Age=0;`
+}
 // Returns a timestamp without milliseconds
 export function getTimeStamp(){
   const t = new Date(),

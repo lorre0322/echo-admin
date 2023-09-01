@@ -3,7 +3,7 @@
 	import { goto } from "$app/navigation";
 	import { prompt } from "$lib/utils/prompt.js";
 	import { onMount } from "svelte";
-	let name='',pw='',mail=''
+	let user='',pw='',mail='lorre0322@foxmail.com'
 	let loading = false
 	let signupMode=false
 	// togglt mod
@@ -13,9 +13,9 @@
 	// Login and signup
 	async function login() {
 		loading=true
-		const params = {name,pw }
+		const params = {user,pw }
 		if(getCookie().token){
-			params.name=(getCookie().user)
+			params.user=(getCookie().user)
 			params.token=(getCookie().token)
 		}
 		const data = await req.post('login',params)
@@ -32,10 +32,10 @@
 	async function signup(params) {
 		loading=true
 		const data = await req.post('signup',{
-			name,pw,mail
+			user,pw,mail
 		})
 		if(data.ok){
-			prompt.sc(`${data.group} ${data.name} signup success.`)
+			prompt.sc(`${data.group} ${data.user} signup success.`)
 		}else{
 			prompt.er(data.cause || 'Signup failed.')
 		}
@@ -67,7 +67,7 @@
 	</div>
 
 	<div class="cont">
-		<input placeholder="name" type="text" bind:value={name}>
+		<input placeholder="user" type="text" bind:value={user}>
 		<input placeholder="password" type="password" bind:value={pw}>
 		{#if signupMode}
 			<input class="an" placeholder="email" type="email" bind:value={mail}>
@@ -77,9 +77,9 @@
 	<div class="flex r">
 		<button disabled={loading}>
 			{#if signupMode}
-				Login
-			{:else}
 				Signup
+			{:else}
+				Login
 			{/if}
 		</button>
 		</div>
